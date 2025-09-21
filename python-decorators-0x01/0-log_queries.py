@@ -6,7 +6,7 @@ import functools
 def log_queries(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        # On suppose que la requête SQL est passée soit comme argument positionnel soit nommé "query"
+        # Assume the SQL query is passed either as positional argument or keyword "query"
         query = None
         if "query" in kwargs:
             query = kwargs["query"]
@@ -31,7 +31,6 @@ def fetch_all_users(query):
 
 
 if __name__ == "__main__":
-    # Exemple : récupération et affichage des utilisateurs
+    # Example usage
     users = fetch_all_users(query="SELECT * FROM users")
     print(users)
-
